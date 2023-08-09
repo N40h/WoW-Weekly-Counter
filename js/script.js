@@ -28,8 +28,10 @@ function totalKeys() {
 
 function reset() {
 	count = 0;
+	total = 0;
 	countElement.textContent = 0;
 	saveElement.textContent = 'Previous numbers of keys done: ';
+	totalElement.textContent = '';
 }
 
 addButton.addEventListener('click', () => {
