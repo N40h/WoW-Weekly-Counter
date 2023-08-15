@@ -1,5 +1,4 @@
 const countElement = document.getElementById('count__element');
-const saveElement = document.getElementById('save__element');
 const totalElement = document.getElementById('total__element');
 const addButton = document.getElementById('btn__add');
 const saveButton = document.getElementById('btn__save');
@@ -36,11 +35,15 @@ function displayInfos(data) {
 	const charactersName = document.createElement('p');
 	const charactersClass = document.createElement('p');
 	const charactersSpec = document.createElement('p');
+	const weeklyRunsDiv = document.createElement('div');
+	weeklyRunsDiv.classList.add('weekly__runs__container');
+	const keyList = document.createElement('ul');
+
 	let weeklyHighestRuns = [];
 
-	charactersName.textContent = data.name;
-	charactersClass.textContent = data.class;
-	charactersSpec.textContent = data.active_spec_name;
+	charactersName.textContent = `Name : ${data.name}`;
+	charactersClass.textContent = `Class : ${data.class}`;
+	charactersSpec.textContent = `Spe : ${data.active_spec_name}`;
 
 	weeklyHighestRuns = data.mythic_plus_weekly_highest_level_runs;
 
@@ -48,12 +51,11 @@ function displayInfos(data) {
 	charactersDiv.appendChild(charactersName);
 	charactersDiv.appendChild(charactersClass);
 	charactersDiv.appendChild(charactersSpec);
+	charactersElement.appendChild(weeklyRunsDiv);
+	weeklyRunsDiv.appendChild(keyList);
 
 	for (let i = 0; i < weeklyHighestRuns.length; i++) {
-		const keyList = document.createElement('ul');
-		keyList.innerHTML += `<li> ${weeklyHighestRuns[i].dungeon} ${weeklyHighestRuns[i].mythic_level} </li>`;
-
-		charactersDiv.appendChild(keyList);
+		keyList.innerHTML += `<li> ${weeklyHighestRuns[i].dungeon} <span>${weeklyHighestRuns[i].mythic_level}</span></li>`;
 	}
 }
 
@@ -63,8 +65,6 @@ function increment() {
 }
 
 function save() {
-	let countStr = count + ' - ';
-	saveElement.textContent += countStr;
 	totalKeys();
 	count = 0;
 	countElement.textContent = count;
@@ -80,7 +80,6 @@ function reset() {
 	count = 0;
 	total = 0;
 	countElement.textContent = 0;
-	saveElement.textContent = 'Previous numbers of keys done: ';
 	totalElement.textContent = '';
 	localStorage.clear();
 }
