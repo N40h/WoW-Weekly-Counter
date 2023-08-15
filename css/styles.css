@@ -130,3 +130,11 @@ ul {
     margin-top: 25px;
     color: #06070e;
 }
+
+.affixes__container {
+    margin-top: 35px;
+}
+
+.affixes__container p {
+    margin: 0;
+}
