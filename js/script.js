@@ -26,7 +26,6 @@ async function getCharactersInfos() {
 	);
 	const data = await response.json();
 	displayInfos(data);
-	console.log(data);
 }
 
 function displayInfos(data) {
@@ -65,13 +64,13 @@ function increment() {
 }
 
 function save() {
+	total += count;
 	totalKeys();
 	count = 0;
 	countElement.textContent = count;
 }
 
 function totalKeys() {
-	total += count;
 	localStorage.setItem('keys', JSON.stringify(total));
 	totalElement.textContent = 'Total keys done this week: ' + total;
 }
@@ -90,7 +89,6 @@ addButton.addEventListener('click', () => {
 
 saveButton.addEventListener('click', () => {
 	save();
-	totalKeys();
 });
 
 resetButton.addEventListener('click', () => {
@@ -106,8 +104,12 @@ realmInput.addEventListener('input', (e) => {
 	characters.realm = e.target.value;
 });
 
-charactersNameInput.addEventListener('input', (e) => {
+charactersNameInput.addEventListener('keypress', (e) => {
 	characters.name = e.target.value;
+	if (e.key === 'Enter') {
+		e.preventDefault();
+		requestButton.click();
+	}
 });
 
 requestButton.addEventListener('click', () => {
