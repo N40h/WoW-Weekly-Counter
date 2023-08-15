@@ -43,6 +43,11 @@ button {
     border-radius: 10px;
 }
 
+ul {
+    margin: 0;
+    list-style-type: none;
+}
+
 #save__element,
 #total__element {
     margin: 30px 0;
@@ -58,4 +63,39 @@ button {
 
 #btn__reset {
     background: darkred;
+    margin-bottom: 20px;
+}
+
+.characters__infos {
+    display: flex;
+    flex-direction: column;
+}
+
+.characters__infos label {
+    display: flex;
+    margin-bottom: 3px;
+}
+
+.characters__infos input {
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 3px;
+}
+
+.characters__infos__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.characters__infos__container p {
+    margin: 0;
+}
+
+#btn__request {
+    margin-top: 25px;
 }
