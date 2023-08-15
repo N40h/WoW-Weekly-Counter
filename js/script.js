@@ -36,7 +36,6 @@ function displayInfos(data) {
 	const charactersName = document.createElement('p');
 	const charactersClass = document.createElement('p');
 	const charactersSpec = document.createElement('p');
-	// const charactersWeeklyHighestRuns = document.createElement('p');
 	let weeklyHighestRuns = [];
 
 	charactersName.textContent = data.name;
@@ -44,7 +43,6 @@ function displayInfos(data) {
 	charactersSpec.textContent = data.active_spec_name;
 
 	weeklyHighestRuns = data.mythic_plus_weekly_highest_level_runs;
-	console.log(weeklyHighestRuns);
 
 	charactersElement.appendChild(charactersDiv);
 	charactersDiv.appendChild(charactersName);
